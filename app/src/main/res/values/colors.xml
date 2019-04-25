@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBlau">#BCE0FD</color>
+    <color name="colorBlauContorns">#2699FB</color>
+    <color name="colorTaronja">#FE9206</color>
+    <color name="colorGris">#707070</color>
+</resources>

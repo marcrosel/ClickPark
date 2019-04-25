@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ClickPark</string>
+    <string name="va_una_imagen">Image</string>
+    <string name="Email">Email</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="inicio_sesion">Iniciar Sesión</string>
+    <string name="registro">Registrarse</string>
+    <string name="contra_olvidada">¿Has olvidado la contraseña?</string>
+    <string name="Crear_cuenta">CREAR UNA CUENTA</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Apellidos">Apellidos</string>
+    <string name="Confirmar_Contra">Confirmar contraseña</string>
+    <string name="boton_crear_cuenta">Crear</string>
+    <string name="Seleccionar">SELECCIONAR </string>
+    <string name="Tipo_vehiculo">TIPO DE VEHÍCULO</string>
+    <string name="buscar">BUSCAR </string>
+    <string name="lista">LISTA </string>
+    <string name="parking">PARKING</string>
+    <string name="parkings">PARKINGS</string>
+    <string name="UPS">UPS! </string>
+    <string name="Elparking">EL PARKING</string>
+    <string name="Estacompleto">ESTÁ COMPLETO</string>
+    <string name="new_passsword">INTRODUZCA LA NUEVA CONTRASEÑA</string>
+    <string name="restablecer">Restablecer contraseña</string>
+    <string name="condiciones">He leído y acepto los Términos  de Servicio y Política de Privacidad</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
