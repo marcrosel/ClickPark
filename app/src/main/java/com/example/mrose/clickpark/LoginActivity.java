@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         inicio_sesion.setOnClickListener(new View.OnClickListener() { //Realizamos el intent para una vez
             @Override                                                 //iniciado sesion vaya al maps
             public void onClick(View v) {
-                Intent intent1= new Intent(getApplicationContext(),MapsActivity.class);
+                Intent intent1= new Intent(getApplicationContext(),Navigation_Drawer.class);
                 startActivity(intent1);
 
             }

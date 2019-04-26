@@ -18,7 +18,7 @@ public class BuscarparkingActivity extends AppCompatActivity {
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(), MapsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Navigation_Drawer.class);
                 startActivity(intent);
             }
         });

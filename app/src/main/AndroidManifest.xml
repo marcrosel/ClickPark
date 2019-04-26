@@ -15,22 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ChoosetypeActivity"></activity>
-        <activity android:name=".RestaurarpasswordActivity">
-
-        </activity>
-        <activity android:name=".NoparkingActivity">
-
-        </activity>
-        <activity android:name=".ListaparkingActivity">
-
-        </activity>
-        <activity android:name=".BuscarparkingActivity">
-
-        </activity>
-        <activity android:name=".RegisterActivity">
-
-        </activity>
+        <activity
+            android:name=".Navigation_Drawer"
+            android:label="@string/title_activity_navigation__drawer"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".ChoosetypeActivity" />
+        <activity android:name=".RestaurarpasswordActivity"></activity>
+        <activity android:name=".NoparkingActivity"></activity>
+        <activity android:name=".ListaparkingActivity"></activity>
+        <activity android:name=".BuscarparkingActivity"></activity>
+        <activity android:name=".RegisterActivity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
