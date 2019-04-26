@@ -6,16 +6,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/search_parking"
-            android:title="BUSCAR PARKING" />
+            android:title="@string/search_parking" />
         <item
             android:id="@+id/parking_list"
-            android:title="LISTA PARKINGS" />
+            android:title="@string/parking_list" />
         <item
             android:id="@+id/favs"
-            android:title="FAVORITOS" />
+            android:title="@string/favs" />
         <item
             android:id="@+id/reservation"
-            android:title="MIS RESERVAS" />
+            android:title="@string/mis_reservas" />
     </group>
 
 

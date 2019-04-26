@@ -31,6 +31,10 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="search_parking">BUSCAR PARKING</string>
+    <string name="parking_list">LISTA PARKINGS</string>
+    <string name="favs">FAVORITOS</string>
+    <string name="mis_reservas">MIS RESERVAS</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
