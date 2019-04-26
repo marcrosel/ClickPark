@@ -79,6 +79,9 @@ public class Navigation_Drawer extends AppCompatActivity
             //falta pantalla favs
         } else if (id == R.id.reservation) {
             //falta pantalla mis reservas
+        } else if (id == R.id.exit){
+            Intent intent6 = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent6);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

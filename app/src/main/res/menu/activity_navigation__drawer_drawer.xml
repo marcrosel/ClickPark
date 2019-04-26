@@ -16,6 +16,9 @@
         <item
             android:id="@+id/reservation"
             android:title="@string/mis_reservas" />
+        <item
+            android:id="@+id/exit"
+            android:title="@string/close_session" />
     </group>
 
 
