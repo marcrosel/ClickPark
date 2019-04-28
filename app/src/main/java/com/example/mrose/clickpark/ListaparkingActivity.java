@@ -19,7 +19,7 @@ public class ListaparkingActivity extends AppCompatActivity {
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(), Navigation_Drawer.class);
+                Intent intent= new Intent(getApplicationContext(), Menu_Inicial.class);
                 startActivity(intent);
             }
         });
