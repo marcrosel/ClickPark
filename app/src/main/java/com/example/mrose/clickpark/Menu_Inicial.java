@@ -19,7 +19,7 @@ public class Menu_Inicial extends AppCompatActivity {
         buscar_parking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(),BuscarparkingActivity.class);
+                Intent intent= new Intent(getApplicationContext(),BuscarParkingActivity.class);
                 startActivity(intent);
             }
         });
@@ -28,7 +28,7 @@ public class Menu_Inicial extends AppCompatActivity {
         lista_parking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(), ListaparkingActivity.class);
+                Intent intent= new Intent(getApplicationContext(), ListaParkingActivity.class);
                 startActivity(intent);
             }
         });
@@ -37,7 +37,7 @@ public class Menu_Inicial extends AppCompatActivity {
         favs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(),Favoritos.class);
+                Intent intent= new Intent(getApplicationContext(),FavoritosActivity.class);
                 startActivity(intent);
             }
         });

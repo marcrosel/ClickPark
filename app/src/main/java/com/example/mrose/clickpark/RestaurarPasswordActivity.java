@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class RestaurarpasswordActivity extends AppCompatActivity {
+public class RestaurarPasswordActivity extends AppCompatActivity {
 
     Button restablecer;
     ImageButton atras;

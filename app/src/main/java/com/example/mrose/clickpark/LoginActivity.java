@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         contra_olvidada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent3= new Intent(getApplicationContext(), RestaurarpasswordActivity.class);
+                Intent intent3= new Intent(getApplicationContext(), RestaurarPasswordActivity.class);
                 startActivity(intent3);
             }
         });

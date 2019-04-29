@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Favoritos extends AppCompatActivity {
+public class ListaParkingActivity extends AppCompatActivity {
 
     ImageButton atras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_favs);
+        setContentView(R.layout.lista_parkings);
 
         atras = (ImageButton) findViewById(R.id.atras);
         atras.setOnClickListener(new View.OnClickListener() {
@@ -24,6 +24,4 @@ public class Favoritos extends AppCompatActivity {
             }
         });
     }
-
-
 }

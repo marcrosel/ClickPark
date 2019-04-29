@@ -16,13 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".PerfilActivity" />
-        <activity android:name=".Favoritos" />
+        <activity android:name=".FavoritosActivity" />
         <activity android:name=".Menu_Inicial" />
-        <activity android:name=".ChoosetypeActivity" />
-        <activity android:name=".RestaurarpasswordActivity" />
-        <activity android:name=".NoparkingActivity" />
-        <activity android:name=".ListaparkingActivity" />
-        <activity android:name=".BuscarparkingActivity" />
+        <activity android:name=".EscogerTipoActivity" />
+        <activity android:name=".RestaurarPasswordActivity" />
+        <activity android:name=".NoParkingActivity" />
+        <activity android:name=".ListaParkingActivity" />
+        <activity android:name=".BuscarParkingActivity" />
         <activity android:name=".RegisterActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

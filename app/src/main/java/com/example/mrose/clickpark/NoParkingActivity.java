@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class NoparkingActivity extends AppCompatActivity {
+public class NoParkingActivity extends AppCompatActivity {
 
     ImageButton atras;
 
@@ -18,7 +18,7 @@ public class NoparkingActivity extends AppCompatActivity {
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(),ChoosetypeActivity.class);
+                Intent intent= new Intent(getApplicationContext(),EscogerTipoActivity.class);
                 startActivity(intent);
             }
         });
