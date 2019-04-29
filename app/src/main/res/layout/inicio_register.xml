@@ -197,7 +197,7 @@
         app:srcCompat="@drawable/fletxa" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/aceptar"
         android:layout_width="271dp"
         android:layout_height="55dp"
         android:layout_marginStart="32dp"

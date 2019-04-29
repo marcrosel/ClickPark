@@ -19,7 +19,7 @@ public class FavoritosActivity extends AppCompatActivity {
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(), Menu_Inicial.class);
+                Intent intent= new Intent(getApplicationContext(), MenuInicialActivity.class);
                 startActivity(intent);
             }
         });

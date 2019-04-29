@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Menu_Inicial extends AppCompatActivity {
+public class MenuInicialActivity extends AppCompatActivity {
 
     Button buscar_parking, lista_parking, favs, consultar_mapa, cerrar_sesion, perfil;
 

@@ -20,7 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.inicio_register);
 
         crear = (Button) findViewById(R.id.crear);
-        aceptar = (Switch) findViewById(R.id.switch1);
+        aceptar = (Switch) findViewById(R.id.aceptar);
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
