@@ -8,17 +8,17 @@ import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button inicio_sesion, registro, contra_olvidada;
+    Button inicioSesionButton, registroButton, contraOlvidadaButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        inicio_sesion = (Button) findViewById(R.id.inicio_sesion); // la var inicio sesion le corresponde
+        inicioSesionButton = (Button) findViewById(R.id.inicio_sesion); // la var inicio sesion le corresponde
         // el boton que tiene la id = inicio_sesion
 
-        inicio_sesion.setOnClickListener(new View.OnClickListener() { //Realizamos el intent para una vez
+        inicioSesionButton.setOnClickListener(new View.OnClickListener() { //Realizamos el intent para una vez
             @Override                                                 //iniciado sesion vaya al maps
             public void onClick(View v) {
                 Intent intent1= new Intent(getApplicationContext(),MenuInicialActivity.class);
@@ -27,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        registro = (Button) findViewById(R.id.registro);
-        registro.setOnClickListener(new View.OnClickListener() {
+        registroButton = (Button) findViewById(R.id.registro);
+        registroButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent2= new Intent(getApplicationContext(), RegisterActivity.class);
@@ -36,8 +36,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        contra_olvidada = (Button) findViewById(R.id.contra_olvidada);
-        contra_olvidada.setOnClickListener(new View.OnClickListener() {
+        contraOlvidadaButton = (Button) findViewById(R.id.contra_olvidada);
+        contraOlvidadaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent3= new Intent(getApplicationContext(), RestaurarPasswordActivity.class);

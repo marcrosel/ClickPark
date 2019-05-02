@@ -8,14 +8,14 @@ import android.widget.ImageButton;
 
 public class BuscarParkingActivity extends AppCompatActivity {
 
-    ImageButton atras;
+    ImageButton atrasButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.buscar_parking);
-        atras = (ImageButton) findViewById(R.id.atras);
-        atras.setOnClickListener(new View.OnClickListener() {
+        atrasButton = (ImageButton) findViewById(R.id.atras);
+        atrasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MenuInicialActivity.class);

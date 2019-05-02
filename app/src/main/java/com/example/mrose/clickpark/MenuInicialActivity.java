@@ -8,15 +8,15 @@ import android.widget.Button;
 
 public class MenuInicialActivity extends AppCompatActivity {
 
-    Button buscar_parking, lista_parking, favs, consultar_mapa, cerrar_sesion, perfil;
+    Button buscarParkingButton, listaParkingButton, favsButton, consultarMapaButton, cerrarsesionButton, perfilButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu__inicial);
 
-        buscar_parking = (Button) findViewById(R.id.buscar_parking);
-        buscar_parking.setOnClickListener(new View.OnClickListener() {
+        buscarParkingButton = (Button) findViewById(R.id.buscar_parking);
+        buscarParkingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(),BuscarParkingActivity.class);
@@ -24,8 +24,8 @@ public class MenuInicialActivity extends AppCompatActivity {
             }
         });
 
-        lista_parking = (Button) findViewById(R.id.lista_parking);
-        lista_parking.setOnClickListener(new View.OnClickListener() {
+        listaParkingButton = (Button) findViewById(R.id.lista_parking);
+        listaParkingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(), ListaParkingActivity.class);
@@ -33,8 +33,8 @@ public class MenuInicialActivity extends AppCompatActivity {
             }
         });
 
-        favs = (Button) findViewById(R.id.favs);
-        favs.setOnClickListener(new View.OnClickListener() {
+        favsButton = (Button) findViewById(R.id.favs);
+        favsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(),FavoritosActivity.class);
@@ -42,8 +42,8 @@ public class MenuInicialActivity extends AppCompatActivity {
             }
         });
 
-        consultar_mapa = (Button) findViewById(R.id.consultarMapa);
-        consultar_mapa.setOnClickListener(new View.OnClickListener() {
+        consultarMapaButton = (Button) findViewById(R.id.consultarMapa);
+        consultarMapaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(), MapsActivity.class);
@@ -51,8 +51,8 @@ public class MenuInicialActivity extends AppCompatActivity {
             }
         });
 
-        perfil = (Button) findViewById(R.id.perfil);
-        perfil.setOnClickListener(new View.OnClickListener() {
+        perfilButton = (Button) findViewById(R.id.perfil);
+        perfilButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(), PerfilActivity.class);
@@ -60,8 +60,8 @@ public class MenuInicialActivity extends AppCompatActivity {
             }
         });
 
-        cerrar_sesion = (Button) findViewById(R.id.cerrar_sesion);
-        cerrar_sesion.setOnClickListener(new View.OnClickListener() {
+        cerrarsesionButton = (Button) findViewById(R.id.cerrar_sesion);
+        cerrarsesionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(), LoginActivity.class);

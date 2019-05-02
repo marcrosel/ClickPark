@@ -9,16 +9,16 @@ import android.widget.ImageButton;
 
 public class RestaurarPasswordActivity extends AppCompatActivity {
 
-    Button restablecer;
-    ImageButton atras;
+    Button restablecerButton;
+    ImageButton atrasButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.restaurar_password);
 
-        restablecer = (Button) findViewById(R.id.restablecer);
-        restablecer.setOnClickListener(new View.OnClickListener() {
+        restablecerButton = (Button) findViewById(R.id.restablecer);
+        restablecerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(), LoginActivity.class);
@@ -26,8 +26,8 @@ public class RestaurarPasswordActivity extends AppCompatActivity {
             }
         });
 
-        atras = (ImageButton) findViewById(R.id.atras);
-        atras.setOnClickListener(new View.OnClickListener() {
+        atrasButton = (ImageButton) findViewById(R.id.atras);
+        atrasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(), LoginActivity.class);
