@@ -1,11 +1,11 @@
 package com.example.mrose.clickpark;
 
-public class ListaPlantas {
-    private int nPlantas;
-    private Planta[] listaPlantas;
+import java.util.List;
 
-    public ListaPlantas(int n){
-        nPlantas=0;
-        listaPlantas = new Planta[n];
+public class ListaPlantas {
+    private List<Planta> Plantas;
+
+    public ListaPlantas(List<Planta> plantas) {
+        Plantas = plantas;
     }
 }

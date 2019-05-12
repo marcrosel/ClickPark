@@ -1,11 +1,11 @@
 package com.example.mrose.clickpark;
 
-public class ListaParkings {
-    private int nParkings;
-    private  Parking[] listaParkings;
+import java.util.List;
 
-    public ListaParkings(int nParkings, Parking[] listaParkings) {
-        this.nParkings = nParkings;
-        this.listaParkings = listaParkings;
+public class ListaParkings {
+    private List<Parking> Parkings;
+
+    public ListaParkings(List<Parking> parkings) {
+        Parkings = parkings;
     }
 }

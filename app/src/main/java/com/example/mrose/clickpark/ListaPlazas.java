@@ -1,12 +1,11 @@
 package com.example.mrose.clickpark;
 
+import java.util.List;
+
 public class ListaPlazas {
-    private int nPlazas;
-    private Plaza[] listaPlazas;
+    private List<Plaza> Plazas;
 
-    public ListaPlazas(int nPlazas){
-        this.nPlazas= nPlazas;
-        listaPlazas= new Plaza[nPlazas];
+    public ListaPlazas(List<Plaza> plazas) {
+        Plazas = plazas;
     }
-
 }
