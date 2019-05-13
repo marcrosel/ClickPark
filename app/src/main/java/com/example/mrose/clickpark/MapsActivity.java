@@ -10,6 +10,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,22 +21,36 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.GsonBuilder;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+import java.util.List;
+
+import cat.tomasgis.module.communication.CommManager;
+import cat.tomasgis.module.communication.base.AppURL;
+import cat.tomasgis.module.communication.listeners.IDataReceiver;
+import cat.tomasgis.module.communication.listeners.StringResponseListener;
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, IDataReceiver {
 
     private GoogleMap mMap;
-    private Marker marcador;
+    private Marker marcador, marcadorParking;
     double lat, lng;
+    private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
+    StringResponseListener stringListener = new StringResponseListener(this);
+    ListaLocations locations;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        CommManager.initializeQueu(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        if (! CommManager.callRequest(AppURL.LOCATIOM_URL,stringListener))
+            Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -62,7 +78,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         marcador= mMap.addMarker(new MarkerOptions().position(coordenadas).title("Posición actual"));
         mMap.animateCamera(miUbi);
+    }
 
+    private void agregarMarcadorParking(double lat, double lng) {
+        LatLng coordenadas = new LatLng(lat, lng);
+        marcadorParking= mMap.addMarker(new MarkerOptions().position(coordenadas).title("Parking"));
     }
 
     private void actualizarUbi(Location location) {
@@ -100,6 +120,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         actualizarUbi(location);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,15000,0,locationListener);
+    }
+
+    @Override
+    public void onReceiveData(String s) {
+        if (s !=null) {
+            if (s.length() > 0) {
+                Toast.makeText(this, "Data received", Toast.LENGTH_SHORT).show();
+                Log.d(TAG,s);
+            }
+        }
+        else
+        {
+            Toast.makeText(this, "Data NOT received", Toast.LENGTH_SHORT).show();
+            Log.e(TAG,"No data to show");
+        }
+
+        GsonBuilder gson = new GsonBuilder();
+        String parse= "{\"locations\":"+s+"}";
+        locations=gson.create().fromJson(parse,ListaLocations.class);
+
+
+        for ( Location location:locations.getLocations()){
+            agregarMarcadorParking(location.getLatitude(),location.getLongitude());
+        }
     }
 
 }

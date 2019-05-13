@@ -12,26 +12,19 @@ import com.google.gson.GsonBuilder;
 
 import cat.tomasgis.module.communication.CommManager;
 import cat.tomasgis.module.communication.base.AppURL;
-import cat.tomasgis.module.communication.listeners.IDataReceiver;
-import cat.tomasgis.module.communication.listeners.StringResponseListener;
 
-import cat.tomasgis.module.communication.CommManager;
 
-public class LoginActivity extends AppCompatActivity implements IDataReceiver{
+public class LoginActivity extends AppCompatActivity{
 
     private Button inicioSesionButton, registroButton, contraOlvidadaButton;
-    private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
-    StringResponseListener stringListener = new StringResponseListener(this);
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        CommManager.initializeQueu(this);
 
-        if (! CommManager.callRequest(AppURL.PARKING_URL,stringListener))
-            Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
 
         inicioSesionButton = (Button) findViewById(R.id.inicio_sesion); // la var inicio sesion le corresponde
@@ -65,24 +58,5 @@ public class LoginActivity extends AppCompatActivity implements IDataReceiver{
         });
     }
 
-    @Override
-    public void onReceiveData(String s) {
-        if (s !=null) {
-            if (s.length() > 0) {
-                Toast.makeText(this, "Data received", Toast.LENGTH_SHORT).show();
-                Log.d(TAG,s);
-            }
-        }
-        else
-        {
-            Toast.makeText(this, "Data NOT received", Toast.LENGTH_SHORT).show();
-            Log.e(TAG,"No data to show");
-        }
-
-        GsonBuilder gson = new GsonBuilder();
-        String parse= "{\"Parking\":"+s+"}";
-        ListaParkings parkings=gson.create().fromJson(parse,ListaParkings.class);
-
-    }
 }
 
