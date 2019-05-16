@@ -3,17 +3,17 @@ package com.example.mrose.clickpark;
 public class Localizacion {
     //atributos
     int id, postal_code;
-    String street_adress, city, state_province, lat, lon;
+    String street_address, city, state_province, latitude, longitude;
 
     //constructor
     public Localizacion(int id, String street_adress, int postal_code, String city, String state_province, String lat, String lon){
         this.id=id;
-        this.street_adress=street_adress;
+        this.street_address=street_adress;
         this.postal_code=postal_code;
         this.city=city;
         this.state_province=state_province;
-        this.lat=lat;
-        this.lon=lon;
+        this.latitude=lat;
+        this.longitude=lon;
     }
 
     public int getId() {
@@ -32,12 +32,12 @@ public class Localizacion {
         this.postal_code = postal_code;
     }
 
-    public String getStreet_adress() {
-        return street_adress;
+    public String getStreet_address() {
+        return street_address;
     }
 
     public void setStreet_adress(String street_adress) {
-        this.street_adress = street_adress;
+        this.street_address = street_adress;
     }
 
     public String getCity() {
@@ -56,19 +56,19 @@ public class Localizacion {
         this.state_province = state_province;
     }
 
-    public String getLat() {
-        return lat;
+    public String getLatitude() {
+        return latitude;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setLatitude(String lat) {
+        this.latitude = lat;
     }
 
-    public String getLon() {
-        return lon;
+    public String getLongitude() {
+        return longitude;
     }
 
-    public void setLon(String lon) {
-        this.lon = lon;
+    public void setLongitude(String lon) {
+        this.longitude = lon;
     }
 }

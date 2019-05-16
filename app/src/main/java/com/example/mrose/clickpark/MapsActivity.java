@@ -80,9 +80,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.animateCamera(miUbi);
     }
 
-    private void agregarMarcadorParking(double lat, double lng) {
+    private void agregarMarcadorParking(double lat, double lng, String adress) {
         LatLng coordenadas = new LatLng(lat, lng);
-        marcadorParking= mMap.addMarker(new MarkerOptions().position(coordenadas).title("Parking"));
+        marcadorParking= mMap.addMarker(new MarkerOptions().position(coordenadas).title("Parking: "+adress));
     }
 
     private void actualizarUbi(Location location) {
@@ -141,8 +141,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         locations=gson.create().fromJson(parse,ListaLocations.class);
 
 
-        for ( Location location:locations.getLocations()){
-            agregarMarcadorParking(location.getLatitude(),location.getLongitude());
+        for ( Localizacion location:locations.getLocations()){
+            agregarMarcadorParking(Double.parseDouble(location.getLatitude()),Double.parseDouble(location.getLongitude()), location.street_address);
         }
     }
 

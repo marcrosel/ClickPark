@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaLocations {
-    private List<Location>locations;
+    private List<Localizacion>locations;
 
     public ListaLocations() {
         this.locations = new ArrayList<>();
     }
 
-    public List<Location> getLocations() {
+    public List<Localizacion> getLocations() {
         return locations;
     }
 
-    public void setLocations(List<Location> locations) {
+    public void setLocations(List<Localizacion> locations) {
         this.locations = locations;
     }
 }
