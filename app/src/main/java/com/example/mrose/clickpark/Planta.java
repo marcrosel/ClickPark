@@ -1,31 +1,53 @@
 package com.example.mrose.clickpark;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Planta {
     //atributos
     protected int id, company_number;
     protected String name;
-    protected ListaPlazas listaPlazas;
+    protected List<Plaza> slots;
 
 
     //constructor
-    public Planta(int id,ListaPlazas listaPlazas, int company_number, String name){
+    public Planta(int id,List<Plaza> slots, int company_number, String name){
         this.id=id;
         this.company_number=company_number;
         this.name=name;
-        this.listaPlazas=listaPlazas;
+        this.slots=slots;
 
     }
 
-    //GETTERS I SETTERS
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public int getCompany_number(){
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCompany_number() {
         return company_number;
     }
 
-    public String getName(){
+    public void setCompany_number(int company_number) {
+        this.company_number = company_number;
+    }
+
+    public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Plaza> getSlots() {
+        return slots;
+    }
+
+    public void setSlots(List<Plaza> slots) {
+        this.slots = slots;
     }
 }

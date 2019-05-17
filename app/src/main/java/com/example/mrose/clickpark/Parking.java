@@ -1,17 +1,17 @@
 package com.example.mrose.clickpark;
 
+import java.util.List;
+
 public class Parking {
     //atributos
     int id, company_number;
-    ListaPlazas listaPlazas;
-    Localizacion loc;
+    protected List<Planta> floors;
     String name;
 
-    public Parking(int id, int company_number, ListaPlazas listaPlazas, Localizacion loc, String name) {
+    public Parking(int id, int company_number, List<Planta> floors, String name) {
         this.id = id;
         this.company_number = company_number;
-        this.listaPlazas = listaPlazas;
-        this.loc = loc;
+        this.floors = floors;
         this.name = name;
     }
 
@@ -31,20 +31,12 @@ public class Parking {
         this.company_number = company_number;
     }
 
-    public ListaPlazas getListaPlazas() {
-        return listaPlazas;
+    public List<Planta> getFloors() {
+        return floors;
     }
 
-    public void setListaPlazas(ListaPlazas listaPlazas) {
-        this.listaPlazas = listaPlazas;
-    }
-
-    public Localizacion getLoc() {
-        return loc;
-    }
-
-    public void setLoc(Localizacion loc) {
-        this.loc = loc;
+    public void setFloors(List<Planta> floors) {
+        this.floors = floors;
     }
 
     public String getName() {
@@ -54,7 +46,4 @@ public class Parking {
     public void setName(String name) {
         this.name = name;
     }
-
-
-
 }

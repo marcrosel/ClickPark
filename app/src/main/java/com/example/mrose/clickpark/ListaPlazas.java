@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaPlazas {
-    private List<Plaza> plazas;
+    private List<Plaza> slots;
 
-    public ListaPlazas(List<Plaza> plazas) {
-        this.plazas = new ArrayList<>();
+    public ListaPlazas() {
+        this.slots = new ArrayList<>();
     }
 
     public List<Plaza> getPlazas() {
-        return plazas;
+        return slots;
     }
 
     public void setPlazas(List<Plaza> plazas) {
-        this.plazas = plazas;
+        this.slots = plazas;
     }
 }

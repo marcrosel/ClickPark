@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaPlantas {
-    private List<Planta> plantas;
+    private List<Planta> floors;
 
-    public ListaPlantas(List<Planta> plantas) {
-        this.plantas = new ArrayList<>();
+    public ListaPlantas() {
+        this.floors = new ArrayList<>();
     }
 
     public List<Planta> getPlantas() {
-        return plantas;
+        return floors;
     }
 
     public void setPlantas(List<Planta> plantas) {
-        this.plantas = plantas;
+        this.floors = plantas;
     }
 }

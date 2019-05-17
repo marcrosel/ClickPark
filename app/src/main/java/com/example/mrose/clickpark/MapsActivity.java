@@ -1,8 +1,10 @@
 package com.example.mrose.clickpark;
 
 import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -23,20 +25,20 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.GsonBuilder;
 
-import java.util.List;
 
+import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 import cat.tomasgis.module.communication.CommManager;
 import cat.tomasgis.module.communication.base.AppURL;
 import cat.tomasgis.module.communication.listeners.IDataReceiver;
 import cat.tomasgis.module.communication.listeners.StringResponseListener;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, IDataReceiver {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback /*,IDataReceiver*/ {
 
     private GoogleMap mMap;
     private Marker marcador, marcadorParking;
     double lat, lng;
     private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
-    StringResponseListener stringListener = new StringResponseListener(this);
+    //StringResponseListener stringListener = new StringResponseListener(this);
     ListaLocations locations;
 
 
@@ -49,8 +51,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        if (! CommManager.callRequest(AppURL.LOCATIOM_URL,stringListener))
-            Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -67,6 +67,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         miUbi();
+        queryBaseData();
     }
 
 
@@ -89,6 +90,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (location != null) {
             lat = location.getLatitude();
             lng = location.getLongitude();
+
             agregarMarcador(lat, lng);
         }
     }
@@ -122,28 +124,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,15000,0,locationListener);
     }
 
-    @Override
-    public void onReceiveData(String s) {
-        if (s !=null) {
-            if (s.length() > 0) {
-                Toast.makeText(this, "Data received", Toast.LENGTH_SHORT).show();
-                Log.d(TAG,s);
-            }
-        }
-        else
-        {
-            Toast.makeText(this, "Data NOT received", Toast.LENGTH_SHORT).show();
-            Log.e(TAG,"No data to show");
-        }
+    protected void queryBaseData(){
+        ContentResolver contentResolver = this.getContentResolver();
 
-        GsonBuilder gson = new GsonBuilder();
-        String parse= "{\"locations\":"+s+"}";
-        locations=gson.create().fromJson(parse,ListaLocations.class);
+        String defaultOrder = ModelContracts.LocationModel.DEFAULT_SORT;
+        String projections[] = ModelContracts.LocationModel.DEFAULT_PROJECTIONS;
+
+        Cursor cursor= contentResolver.query(ModelContracts.LocationModel.buildContentUri(), projections, null, null, defaultOrder);
+        int numLocalizaciones = cursor.getCount();
+
+        cursor.moveToFirst();
+        for(int i=0; i<numLocalizaciones;i++){
+            Double latitude = Double.parseDouble(cursor.getString(cursor.getColumnIndex(ModelContracts.LocationModel.LATITUDE)));
+            Double longitude = Double.parseDouble(cursor.getString(cursor.getColumnIndex(ModelContracts.LocationModel.LONGITUDE)));
+            String name = cursor.getString(cursor.getColumnIndex(ModelContracts.LocationModel.STREET_ADDRESS));
+
+            agregarMarcadorParking(latitude,longitude, name);
+
+            cursor.moveToNext();
 
 
-        for ( Localizacion location:locations.getLocations()){
-            agregarMarcadorParking(Double.parseDouble(location.getLatitude()),Double.parseDouble(location.getLongitude()), location.street_address);
         }
     }
+
+
 
 }

@@ -38,6 +38,10 @@
     <string name="close_session">CERRAR SESIÓN</string>
     <string name="consult_map">CONSULTAR MAPA</string>
     <string name="perfil">PERFIL</string>
+    <string name="escoger">ESCOGER</string>
+    <string name="planta">PLANTA</string>
+    <string name="Disponibles">DISPONIBLES: </string>
+    <string name="Ocupadas">OCUPADAS: </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

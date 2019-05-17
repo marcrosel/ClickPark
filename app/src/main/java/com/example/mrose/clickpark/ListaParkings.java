@@ -6,9 +6,7 @@ import java.util.List;
 public class ListaParkings {
     private List<Parking> parkings;
 
-    public ListaParkings(List<Parking> parkings) {
-        this.parkings = new ArrayList<>();
-    }
+    public ListaParkings(){ this.parkings = new ArrayList<>(); }
 
     public List<Parking> getParkings() {
         return parkings;

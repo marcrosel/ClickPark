@@ -3,13 +3,13 @@ package com.example.mrose.clickpark;
 public class Plaza {
     //atributos
     protected int id, company_number;
-    protected String sloot_type, sloot_color, sloot_state, name, state_change_date, floor_id;
+    protected String slot_type, slot_color, slot_state, name, state_change_date, floor_id;
 
-    public Plaza(int id, String sloot_type, String sloot_color, String sloot_state, int company_number, String name, String state_change_date, String floor_id){
+    public Plaza(int id, String slot_type, String slot_color, String slot_state, int company_number, String name, String state_change_date, String floor_id){
         this.id =id;
-        this.sloot_type=sloot_type;
-        this.sloot_color=sloot_color;
-        this.sloot_state=sloot_state;
+        this.slot_type=slot_type;
+        this.slot_color=slot_color;
+        this.slot_state=slot_state;
         this.company_number=company_number;
         this.name=name;
         this.state_change_date=state_change_date;
@@ -32,28 +32,28 @@ public class Plaza {
         this.company_number = company_number;
     }
 
-    public String getSloot_type() {
-        return sloot_type;
+    public String getSlot_type() {
+        return slot_type;
     }
 
-    public void setSloot_type(String sloot_type) {
-        this.sloot_type = sloot_type;
+    public void setSlot_type(String slot_type) {
+        this.slot_type = slot_type;
     }
 
-    public String getSloot_color() {
-        return sloot_color;
+    public String getSlot_color() {
+        return slot_color;
     }
 
-    public void setSloot_color(String sloot_color) {
-        this.sloot_color = sloot_color;
+    public void setSlot_color(String slot_color) {
+        this.slot_color = slot_color;
     }
 
-    public String getSloot_state() {
-        return sloot_state;
+    public String getSlot_state() {
+        return slot_state;
     }
 
-    public void setSloot_state(String sloot_state) {
-        this.sloot_state = sloot_state;
+    public void setSlot_state(String slot_state) {
+        this.slot_state = slot_state;
     }
 
     public String getName() {
