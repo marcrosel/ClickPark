@@ -120,34 +120,6 @@
         app:layout_constraintTop_toBottomOf="@+id/view2"
         app:layout_constraintVertical_bias="0.466" />
 
-    <ListView
-        android:id="@+id/list_view_bellissens"
-        android:layout_width="257dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView22"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
-
-    <ListView
-        android:id="@+id/list_view_cat"
-        android:layout_width="257dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView21"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
-
     <ImageView
         android:id="@+id/imageView23"
         android:layout_width="133dp"
@@ -174,7 +146,7 @@
 
     <ImageView
         android:id="@+id/imageView21"
-        android:layout_width="125dp"
+        android:layout_width="103dp"
         android:layout_height="101dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -184,18 +156,142 @@
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:srcCompat="@drawable/parking_cat" />
 
-    <ListView
-        android:id="@+id/list_view_sescelades"
-        android:layout_width="254dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="364dp"
+    <TextView
+        android:id="@+id/textViewCat"
+        android:layout_width="227dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView21"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/textViewBell"
+        android:layout_width="227dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="215dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView22"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/textViewSes"
+        android:layout_width="227dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="355dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView23"
         app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <Button
+        android:id="@+id/buttonCat"
+        android:layout_width="80dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="@string/VerPlantas"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCat" />
+
+    <Button
+        android:id="@+id/buttonBell"
+        android:layout_width="80dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:text="@string/VerPlantas"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBell" />
+
+    <Button
+        android:id="@+id/buttonSes"
+        android:layout_width="80dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:text="@string/VerPlantas"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSes"
+        tools:text="@string/VerPlantas" />
+
+    <Button
+        android:id="@+id/mapCat"
+        android:layout_width="80dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="@string/VerEnMapa"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCat"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCat" />
+
+    <Button
+        android:id="@+id/mapBell"
+        android:layout_width="80dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="@string/VerEnMapa"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonBell"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBell" />
+
+    <Button
+        android:id="@+id/mapSes"
+        android:layout_width="80dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="@string/VerEnMapa"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSes"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSes" />
+
+    <ScrollView
+        android:layout_width="418dp"
+        android:layout_height="471dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.04">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -10,9 +10,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.GsonBuilder;
@@ -29,11 +31,14 @@ import cat.tomasgis.module.communication.listeners.StringResponseListener;
 public class ListaParkingActivity extends AppCompatActivity implements IDataReceiver {
 
     ImageButton atrasButton;
+    Button buttonCat, buttonSes, buttonBell, buttonMapCat, buttonMapBell, buttonMapSes;
     //ListView listViewCat, listViewSesc, listViewBell;
+    TextView textViewCat, textViewBell, textViewSes;
     private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
     StringResponseListener stringListener = new StringResponseListener(this);
     ListaPlantas listaPlantas;
     String name;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,18 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
 
         if (! CommManager.callRequest(AppURL.FLOOR_URL,stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
+
+        textViewBell = (TextView) findViewById(R.id.textViewBell);
+        textViewCat = (TextView) findViewById(R.id.textViewCat);
+        textViewSes = (TextView) findViewById(R.id.textViewSes);
+
+        buttonBell = (Button) findViewById(R.id.buttonBell);
+        buttonCat = (Button) findViewById(R.id.buttonCat);
+        buttonSes = (Button) findViewById(R.id.buttonSes);
+
+        buttonMapBell = (Button) findViewById(R.id.mapBell);
+        buttonMapCat = (Button) findViewById(R.id.mapCat);
+        buttonMapSes = (Button) findViewById(R.id.mapSes);
 
       /*
         listViewBell = (ListView) findViewById(R.id.list_view_bellissens);
@@ -59,6 +76,65 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
                 startActivity(intent);
             }
         });
+
+        buttonBell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),PlantasBellActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        buttonSes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PlantasSesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PlantasCatActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonMapSes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivitySes.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonMapCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivityCat.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonMapBell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivityBell.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    protected void Escribir(String name, int id){
+        if(id==2)
+            textViewCat.setText(name);
+        else if (id == 1)
+            textViewSes.setText(name);
+        else if (id == 3)
+            textViewBell.setText(name);
+
     }
 
     @Override
@@ -112,13 +188,14 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
         String projections[] = ModelContracts.ParkingModel.DEFAULT_PROJECTIONS;
 
         Cursor cursor= contentResolver.query(ModelContracts.ParkingModel.buildContentUri(), projections, null, null, defaultOrder);
-        int numLocalizaciones = cursor.getCount();
+        int numParkings = cursor.getCount();
 
         cursor.moveToFirst();
-        for(int i=0; i<numLocalizaciones; i++){
+        for(int i=0; i<numParkings; i++){
             name = cursor.getString(cursor.getColumnIndex(ModelContracts.ParkingModel.NAME));
-
+            id  = Integer.parseInt(cursor.getString(cursor.getColumnIndex(ModelContracts.ParkingModel.ID)));
             cursor.moveToNext();
+            Escribir(name,id);
         }
 
     }
