@@ -23,22 +23,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.gson.GsonBuilder;
-
 
 import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 import cat.tomasgis.module.communication.CommManager;
-import cat.tomasgis.module.communication.base.AppURL;
-import cat.tomasgis.module.communication.listeners.IDataReceiver;
-import cat.tomasgis.module.communication.listeners.StringResponseListener;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback /*,IDataReceiver*/ {
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback  {
 
     private GoogleMap mMap;
     private Marker marcador, marcadorParking;
     double lat, lng;
     private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
-    //StringResponseListener stringListener = new StringResponseListener(this);
     ListaLocations locations;
 
 
@@ -46,7 +41,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        CommManager.initializeQueu(this);
+        //CommManager.initializeQueu(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
