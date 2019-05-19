@@ -17,6 +17,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -74,7 +75,7 @@ public class MapsActivitySes extends FragmentActivity implements OnMapReadyCallb
 
     private void agregarMarcadorParking(double lat, double lng, String adress) {
         LatLng coordenadas = new LatLng(lat, lng);
-        marcadorParking= mMap.addMarker(new MarkerOptions().position(coordenadas).title("Parking: "+adress));
+        mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.icono_parking_opt)).position(coordenadas).title("Parking: "+adress));
     }
 
     private void actualizarUbi(Location location) {
