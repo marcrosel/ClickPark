@@ -152,7 +152,7 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
         }
 
         GsonBuilder gson = new GsonBuilder();
-        String parse= "{\"sloots\":"+s+"}";
+        String parse= "{\"floors\":"+s+"}";
         listaPlantas=gson.create().fromJson(parse,ListaPlantas.class);
         createBaseData();
     }
