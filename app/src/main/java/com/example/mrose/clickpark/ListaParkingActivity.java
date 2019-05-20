@@ -12,6 +12,7 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import android.widget.TextView;
@@ -31,6 +32,7 @@ import cat.tomasgis.module.communication.listeners.StringResponseListener;
 public class ListaParkingActivity extends AppCompatActivity implements IDataReceiver {
 
     ImageButton atrasButton;
+    ImageView imageViewCat, imageViewSes, imageViewBell;
     Button buttonCat, buttonSes, buttonBell, buttonMapCat, buttonMapBell, buttonMapSes;
     //ListView listViewCat, listViewSesc, listViewBell;
     TextView textViewCat, textViewBell, textViewSes;
@@ -49,6 +51,10 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
         if (! CommManager.callRequest(AppURL.FLOOR_URL,stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
+        imageViewBell = findViewById(R.id.imageBell);
+        imageViewCat = findViewById(R.id.imageCat);
+        imageViewSes = findViewById(R.id.imageSes);
+
         textViewBell = (TextView) findViewById(R.id.textViewBell);
         textViewCat = (TextView) findViewById(R.id.textViewCat);
         textViewSes = (TextView) findViewById(R.id.textViewSes);
@@ -61,11 +67,7 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
         buttonMapCat = (Button) findViewById(R.id.mapCat);
         buttonMapSes = (Button) findViewById(R.id.mapSes);
 
-      /*
-        listViewBell = (ListView) findViewById(R.id.list_view_bellissens);
-        listViewCat = (ListView) findViewById(R.id.list_view_cat);
-        listViewSesc = (ListView) findViewById(R.id.list_view_sescelades);
-     */
+
         queryBaseData();
 
         atrasButton = (ImageButton) findViewById(R.id.atras);
@@ -128,12 +130,19 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
     }
 
     protected void Escribir(String name, int id){
-        if(id==2)
+        if(id==2) {
             textViewCat.setText(name);
-        else if (id == 1)
+            imageViewCat.setImageResource(R.drawable.parking_cat);
+        }
+
+        else if (id == 1) {
             textViewSes.setText(name);
-        else if (id == 3)
+            imageViewSes.setImageResource(R.drawable.parking_sescelades);
+        }
+        else if (id == 4) {
             textViewBell.setText(name);
+            imageViewBell.setImageResource(R.drawable.parking_bellisens);
+        }
 
     }
 
