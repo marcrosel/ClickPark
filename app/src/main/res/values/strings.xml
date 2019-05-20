@@ -40,9 +40,11 @@
     <string name="perfil">PERFIL</string>
     <string name="escoger">ESCOGER</string>
     <string name="planta">PLANTA</string>
+    <string name="plantas">PLANTAS</string>
     <string name="Disponibles">DISPONIBLES: </string>
     <string name="Ocupadas">OCUPADAS: </string>
     <string name="VerPlantas">VER PLANTAS </string>
+    <string name="VerPlazas">VER PLAZAS </string>
     <string name="VerEnMapa">VER EN MAPA</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
