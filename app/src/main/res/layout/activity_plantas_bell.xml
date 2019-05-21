@@ -23,10 +23,10 @@
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="192dp"
+        android:layout_width="181dp"
         android:layout_height="44dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
@@ -38,7 +38,7 @@
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/view6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/view5" />
 
@@ -83,10 +83,10 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="175dp"
+        android:layout_width="149dp"
         android:layout_height="44dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/lista"
@@ -119,166 +119,59 @@
         android:id="@+id/scrollView2"
         android:layout_width="393dp"
         android:layout_height="531dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/view6"
         app:layout_constraintVertical_bias="0.26">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"></android.support.constraint.ConstraintLayout>
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewplanta0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="52dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
+                app:layout_constraintStart_toStartOf="@+id/scrollView2"
+                app:layout_constraintTop_toTopOf="@+id/scrollView2" />
+
+            <Button
+                android:id="@+id/verplazas1"
+                android:layout_width="432dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_rounded_border"
+                android:text="@string/VerPlazas"
+                android:textColor="@color/colorTaronja" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="match_parent"
+                android:layout_height="616dp"
+                android:contentDescription="@string/va_una_imagen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fondo_pantalla" />
+
+        </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/textViewplanta0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
-
-    <TextView
-        android:id="@+id/textViewplanta1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewplanta0" />
-
-    <TextView
-        android:id="@+id/textViewplanta2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewplanta1" />
-
-    <TextView
-        android:id="@+id/textViewplanta3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewplanta2" />
-
-    <Button
-        android:id="@+id/verplazas0"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/button_rounded_border"
-        android:text="@string/VerPlazas"
-        android:textColor="@color/colorTaronja"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.81"
-        app:layout_constraintStart_toEndOf="@+id/textViewplanta0"
-        app:layout_constraintTop_toTopOf="@+id/scrollView2"
-        tools:layout_conversion_absoluteHeight="41dp"
-        tools:layout_conversion_absoluteWidth="80dp" />
-
-    <Button
-        android:id="@+id/verplazas1"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/button_rounded_border"
-        android:text="@string/VerPlazas"
-        android:textColor="@color/colorTaronja"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.987"
-        app:layout_constraintStart_toEndOf="@+id/textViewplanta1"
-        app:layout_constraintTop_toBottomOf="@+id/verplazas0"
-        tools:layout_conversion_absoluteHeight="41dp"
-        tools:layout_conversion_absoluteWidth="80dp" />
-
-    <Button
-        android:id="@+id/verplazas2"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/button_rounded_border"
-        android:text="@string/VerPlazas"
-        android:textColor="@color/colorTaronja"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.987"
-        app:layout_constraintStart_toEndOf="@+id/textViewplanta2"
-        app:layout_constraintTop_toBottomOf="@+id/verplazas1"
-        tools:layout_conversion_absoluteHeight="41dp"
-        tools:layout_conversion_absoluteWidth="80dp" />
-
-    <Button
-        android:id="@+id/verplazas3"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/button_rounded_border"
-        android:text="@string/VerPlazas"
-        android:textColor="@color/colorTaronja"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.987"
-        app:layout_constraintStart_toEndOf="@+id/textViewplanta3"
-        app:layout_constraintTop_toBottomOf="@+id/verplazas2"
-        tools:layout_conversion_absoluteHeight="41dp"
-        tools:layout_conversion_absoluteWidth="80dp" />
-
 
 </android.support.constraint.ConstraintLayout>

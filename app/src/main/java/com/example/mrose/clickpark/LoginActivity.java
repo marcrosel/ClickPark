@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity implements IDataReceiver{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        clearAllData();
         CommManager.initializeQueu(this);
 
         if (! CommManager.callRequest(AppURL.PARKING_URL,stringListener))
@@ -115,6 +116,19 @@ public class LoginActivity extends AppCompatActivity implements IDataReceiver{
             }
         }
     }
+
+
+    protected void clearAllData(){
+        ContentResolver contentResolver=this.getContentResolver();
+
+        contentResolver.delete(ModelContracts.SlotModel.buildContentUri(), null, null);
+        contentResolver.delete(ModelContracts.FloorModel.buildContentUri(), null, null);
+        contentResolver.delete(ModelContracts.ParkingModel.buildContentUri(), null, null);
+
+    }
+
+
+
 
 
 

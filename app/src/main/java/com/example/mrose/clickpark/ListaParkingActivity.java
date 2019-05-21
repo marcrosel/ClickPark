@@ -10,9 +10,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import android.widget.TextView;
@@ -32,14 +32,13 @@ import cat.tomasgis.module.communication.listeners.StringResponseListener;
 public class ListaParkingActivity extends AppCompatActivity implements IDataReceiver {
 
     ImageButton atrasButton;
-    ImageView imageViewCat, imageViewSes, imageViewBell;
-    Button buttonCat, buttonSes, buttonBell, buttonMapCat, buttonMapBell, buttonMapSes;
-    //ListView listViewCat, listViewSesc, listViewBell;
-    TextView textViewCat, textViewBell, textViewSes;
+    int datosImagenes[] = {R.drawable.parking_cat, R.drawable.parking_sescelades, R.drawable.parking_bellisens};
+
+
     private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
     StringResponseListener stringListener = new StringResponseListener(this);
     ListaPlantas listaPlantas;
-    String name;
+    ListView listViewParkings;
     int id;
 
     @Override
@@ -47,28 +46,19 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_parkings);
         CommManager.initializeQueu(this);
+        listViewParkings = (ListView) findViewById(R.id.listViewParkings);
 
         if (! CommManager.callRequest(AppURL.FLOOR_URL,stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
-        imageViewBell = findViewById(R.id.imageBell);
-        imageViewCat = findViewById(R.id.imageCat);
-        imageViewSes = findViewById(R.id.imageSes);
-
-        textViewBell = (TextView) findViewById(R.id.textViewBell);
-        textViewCat = (TextView) findViewById(R.id.textViewCat);
-        textViewSes = (TextView) findViewById(R.id.textViewSes);
-
-        buttonBell = (Button) findViewById(R.id.buttonBell);
-        buttonCat = (Button) findViewById(R.id.buttonCat);
-        buttonSes = (Button) findViewById(R.id.buttonSes);
-
-        buttonMapBell = (Button) findViewById(R.id.mapBell);
-        buttonMapCat = (Button) findViewById(R.id.mapCat);
-        buttonMapSes = (Button) findViewById(R.id.mapSes);
 
 
-        queryBaseData();
+      /*
+        listViewBell = (ListView) findViewById(R.id.list_view_bellissens);
+        listViewCat = (ListView) findViewById(R.id.list_view_cat);
+        listViewSesc = (ListView) findViewById(R.id.list_view_sescelades);
+     */
+
 
         atrasButton = (ImageButton) findViewById(R.id.atras);
         atrasButton.setOnClickListener(new View.OnClickListener() {
@@ -79,72 +69,32 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
             }
         });
 
-        buttonBell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),PlantasBellActivity.class);
-                startActivity(intent);
+        ContentResolver contentResolver = this.getContentResolver();
 
-            }
-        });
+        String defaultOrder = ModelContracts.ParkingModel.DEFAULT_SORT;
+        String projections[] = ModelContracts.ParkingModel.DEFAULT_PROJECTIONS;
 
-        buttonSes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PlantasSesActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        buttonCat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PlantasCatActivity.class);
-                startActivity(intent);
-            }
-        });
+        Cursor cursor= contentResolver.query(ModelContracts.ParkingModel.buildContentUri(), projections, null, null, defaultOrder);
+        cursor.moveToFirst();
+        AdaptadorParking adaptadorParking= new AdaptadorParking(this,cursor);
+        listViewParkings.setAdapter(adaptadorParking);
+        cursor.moveToNext();
 
-        buttonMapSes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivitySes.class);
-                startActivity(intent);
-            }
-        });
+        if(cursor.getString(cursor.getColumnIndex(ModelContracts.ParkingModel.NAME))=="Parking Catalunya") {
+            listViewParkings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        buttonMapCat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivityCat.class);
-                startActivity(intent);
-            }
-        });
+                }
+            });
+        }
 
-        buttonMapBell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivityBell.class);
-                startActivity(intent);
-            }
-        });
+
+
+
     }
 
-    protected void Escribir(String name, int id){
-        if(id==2) {
-            textViewCat.setText(name);
-            imageViewCat.setImageResource(R.drawable.parking_cat);
-        }
-
-        else if (id == 1) {
-            textViewSes.setText(name);
-            imageViewSes.setImageResource(R.drawable.parking_sescelades);
-        }
-        else if (id == 4) {
-            textViewBell.setText(name);
-            imageViewBell.setImageResource(R.drawable.parking_bellisens);
-        }
-
-    }
 
     @Override
     public void onReceiveData(String s) {
@@ -188,24 +138,15 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
 
 
         }
-    }
-
-    protected void queryBaseData(){
-        ContentResolver contentResolver = this.getContentResolver();
-
-        String defaultOrder = ModelContracts.ParkingModel.DEFAULT_SORT;
-        String projections[] = ModelContracts.ParkingModel.DEFAULT_PROJECTIONS;
-
-        Cursor cursor= contentResolver.query(ModelContracts.ParkingModel.buildContentUri(), projections, null, null, defaultOrder);
-        int numParkings = cursor.getCount();
-
-        cursor.moveToFirst();
-        for(int i=0; i<numParkings; i++){
-            name = cursor.getString(cursor.getColumnIndex(ModelContracts.ParkingModel.NAME));
-            id  = Integer.parseInt(cursor.getString(cursor.getColumnIndex(ModelContracts.ParkingModel.ID)));
-            cursor.moveToNext();
-            Escribir(name,id);
-        }
 
     }
+
+
+
+
+
+
+
+
+
 }
