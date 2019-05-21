@@ -32,8 +32,6 @@ import cat.tomasgis.module.communication.listeners.StringResponseListener;
 public class ListaParkingActivity extends AppCompatActivity implements IDataReceiver {
 
     ImageButton atrasButton;
-    int datosImagenes[] = {R.drawable.parking_cat, R.drawable.parking_sescelades, R.drawable.parking_bellisens};
-
 
     private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
     StringResponseListener stringListener = new StringResponseListener(this);
@@ -52,14 +50,6 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
 
-
-      /*
-        listViewBell = (ListView) findViewById(R.id.list_view_bellissens);
-        listViewCat = (ListView) findViewById(R.id.list_view_cat);
-        listViewSesc = (ListView) findViewById(R.id.list_view_sescelades);
-     */
-
-
         atrasButton = (ImageButton) findViewById(R.id.atras);
         atrasButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +60,7 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
         });
 
         ContentResolver contentResolver = this.getContentResolver();
+        contentResolver.delete(ModelContracts.SlotModel.buildContentUri(), null, null);
 
         String defaultOrder = ModelContracts.ParkingModel.DEFAULT_SORT;
         String projections[] = ModelContracts.ParkingModel.DEFAULT_PROJECTIONS;
@@ -80,17 +71,6 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
         AdaptadorParking adaptadorParking= new AdaptadorParking(this,cursor);
         listViewParkings.setAdapter(adaptadorParking);
         cursor.moveToNext();
-
-        if(cursor.getString(cursor.getColumnIndex(ModelContracts.ParkingModel.NAME))=="Parking Catalunya") {
-            listViewParkings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                }
-            });
-        }
-
-
 
 
     }

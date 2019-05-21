@@ -28,7 +28,6 @@
         <activity android:name=".MenuInicialActivity" />
         <activity android:name=".EscogerTipoActivity" />
         <activity android:name=".RestaurarPasswordActivity" />
-        <activity android:name=".NoParkingActivity" />
         <activity android:name=".ListaParkingActivity" />
         <activity android:name=".BuscarParkingActivity" />
         <activity android:name=".RegisterActivity" />
