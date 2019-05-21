@@ -30,19 +30,21 @@ public class PlantasSesActivity extends AppCompatActivity implements IDataReceiv
     ImageButton atras;
     ListaPlazas listaPlazas;
 
+    public final static  String PlantasSes = "FloorIdSes";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plantas_ses);
 
         CommManager.initializeQueu(this);
-        if (! CommManager.callRequest(AppURL.FLOOR_URL,stringListener))
+        if (! CommManager.callRequest(AppURL.SLOTS_URL,stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
         textViewP1 = findViewById(R.id.textViewplanta0);
         textViewP2 = findViewById(R.id.textViewplanta1);
-        verPlazas = findViewById(R.id.verplazas1);
-        verPlazas2 = findViewById(R.id.verplazas2);
+        verPlazas = findViewById(R.id.verplazasP1Ses);
+        verPlazas2 = findViewById(R.id.verplazasP2Ses);
         atras = findViewById(R.id.atras);
 
         queryBaseData();
@@ -51,6 +53,7 @@ public class PlantasSesActivity extends AppCompatActivity implements IDataReceiv
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), EscogerTipoActivity.class);
+                intent.putExtra(PlantasSes,"3");
                 startActivity(intent);
             }
         });
@@ -59,6 +62,7 @@ public class PlantasSesActivity extends AppCompatActivity implements IDataReceiv
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), EscogerTipoActivity.class);
+                intent.putExtra(PlantasSes,"4");
                 startActivity(intent);
             }
         });
@@ -131,13 +135,13 @@ public class PlantasSesActivity extends AppCompatActivity implements IDataReceiv
             contentValues.put(ModelContracts.SlotContract.ID, listaPlazas.getPlazas().get(i).getId());
             contentValues.put(ModelContracts.SlotContract.FLOOR_ID, listaPlazas.getPlazas().get(i).getFloor_id());
 
-            String where = ModelContracts.FloorModel.buildDefaultSelection();
-            String whereArgs[] = ModelContracts.FloorModel.buildIdSelectionArgs(listaPlazas.getPlazas().get(i).getId());
+            String where = ModelContracts.SlotModel.buildDefaultSelection();
+            String whereArgs[] = ModelContracts.SlotModel.buildDefaultSelectionArgs(listaPlazas.getPlazas().get(i).company_number);
 
             int numElementsActualizados = this.getContentResolver().update(ModelContracts.SlotModel.buildContentUri(), contentValues, where, whereArgs);
 
             if (numElementsActualizados == 0) {
-                contentResolver.insert(ModelContracts.FloorModel.buildContentUri(), contentValues);
+                contentResolver.insert(ModelContracts.SlotModel.buildContentUri(), contentValues);
             }
         }
     }

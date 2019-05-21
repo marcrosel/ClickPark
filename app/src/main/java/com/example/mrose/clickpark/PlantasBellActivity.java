@@ -32,6 +32,8 @@ public class PlantasBellActivity extends AppCompatActivity implements IDataRecei
     TextView textViewP1;
     Button verPlazas;
     ImageButton atras;
+    public final static  String plantasBell = "FloorIdBell";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +41,15 @@ public class PlantasBellActivity extends AppCompatActivity implements IDataRecei
         setContentView(R.layout.activity_plantas_bell);
 
         CommManager.initializeQueu(this);
-        if (! CommManager.callRequest(AppURL.FLOOR_URL,stringListener))
+        if (! CommManager.callRequest(AppURL.SLOTS_URL,stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
         textViewP1 = findViewById(R.id.textViewplanta0);
-        verPlazas = findViewById(R.id.verplazas1);
+        verPlazas = findViewById(R.id.verplazasP1Bell);
         atras = findViewById(R.id.atras);
 
         queryBaseData();
-
+/*
         verPlazas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +57,7 @@ public class PlantasBellActivity extends AppCompatActivity implements IDataRecei
                 startActivity(intent);
             }
         });
+        */
 
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,13 +136,13 @@ public class PlantasBellActivity extends AppCompatActivity implements IDataRecei
             contentValues.put(ModelContracts.SlotContract.ID, listaPlazas.getPlazas().get(i).getId());
             contentValues.put(ModelContracts.SlotContract.FLOOR_ID, listaPlazas.getPlazas().get(i).getFloor_id());
 
-            String where = ModelContracts.FloorModel.buildDefaultSelection();
-            String whereArgs[] = ModelContracts.FloorModel.buildIdSelectionArgs(listaPlazas.getPlazas().get(i).getId());
+            String where = ModelContracts.SlotModel.buildDefaultSelection();
+            String whereArgs[] = ModelContracts.SlotModel.buildDefaultSelectionArgs(listaPlazas.getPlazas().get(i).company_number);
 
             int numElementsActualizados = this.getContentResolver().update(ModelContracts.SlotModel.buildContentUri(), contentValues, where, whereArgs);
 
             if (numElementsActualizados == 0) {
-                contentResolver.insert(ModelContracts.FloorModel.buildContentUri(), contentValues);
+                contentResolver.insert(ModelContracts.SlotModel.buildContentUri(), contentValues);
             }
         }
     }
