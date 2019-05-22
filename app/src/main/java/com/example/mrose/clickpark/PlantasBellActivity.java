@@ -25,15 +25,13 @@ public class PlantasBellActivity extends AppCompatActivity implements IDataRecei
 
     private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
     StringResponseListener stringListener = new StringResponseListener(this);
-
-    ListaPlazas listaPlazas;
-
     String name;
     TextView textViewP1;
     Button verPlazas;
     ImageButton atras;
-    public final static  String plantasBell = "FloorIdBell";
+    ListaPlazas listaPlazas;
 
+    public final static  String PlantasBell = "FloorIdBell";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,15 +47,16 @@ public class PlantasBellActivity extends AppCompatActivity implements IDataRecei
         atras = findViewById(R.id.atras);
 
         queryBaseData();
-/*
+
         verPlazas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), EscogerTipoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), EscogerVehiculoBellActivity.class);
+                intent.putExtra(PlantasBell,"5");
                 startActivity(intent);
             }
         });
-        */
+
 
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,17 +65,9 @@ public class PlantasBellActivity extends AppCompatActivity implements IDataRecei
                 startActivity(intent);
             }
         });
+
+
     }
-
-
-
-
-
-
-
-
-
-
 
     protected void queryBaseData(){
         ContentResolver contentResolver = this.getContentResolver();
@@ -93,7 +84,7 @@ public class PlantasBellActivity extends AppCompatActivity implements IDataRecei
             int idFloor = Integer.parseInt(cursor.getString(cursor.getColumnIndex(ModelContracts.FloorModel.ID)));
             cursor.moveToNext();
             if (idFloor == 5)
-                textViewP1.setText("               "+name);
+                textViewP1.setText("             "+name);
 
 
         }

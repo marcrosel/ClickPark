@@ -41,11 +41,18 @@
     <string name="escoger">ESCOGER</string>
     <string name="planta">PLANTA</string>
     <string name="plantas">PLANTAS</string>
+    <string name="plazas">PLAZAS</string>
     <string name="Disponibles">DISPONIBLES: </string>
+    <string name="Disponible">DISPONIBLES </string>
     <string name="Ocupadas">OCUPADAS: </string>
     <string name="VerPlantas">VER PLANTAS </string>
     <string name="VerPlazas">VER PLAZAS </string>
     <string name="VerEnMapa">VER EN MAPA</string>
+    <string name="Catalunya">CATALUNYA</string>
+    <string name="Sescelades">SESCELADES</string>
+    <string name="Bellisens">BELLISENS</string>
+    <string name="Espacio"> </string>
+    <string name="plazaAsignada">Su plaza asignada es:</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

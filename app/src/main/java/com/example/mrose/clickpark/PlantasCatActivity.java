@@ -21,16 +21,16 @@ import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 import cat.tomasgis.module.communication.listeners.IDataReceiver;
 
 public class PlantasCatActivity extends AppCompatActivity implements IDataReceiver {
-    public final static  String plantasCat = "FloorIdCat";
 
+    private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
+    StringResponseListener stringListener = new StringResponseListener(this);
     String name;
     TextView textViewP1, textViewP2;
     Button verPlazas, verPlazas2;
     ImageButton atras;
     ListaPlazas listaPlazas;
 
-    private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
-    StringResponseListener stringListener = new StringResponseListener(this);
+    public final static  String PlantasCat = "FloorIdCat";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +45,15 @@ public class PlantasCatActivity extends AppCompatActivity implements IDataReceiv
         textViewP2 = findViewById(R.id.textViewplanta1);
         verPlazas = findViewById(R.id.verplazas1);
         verPlazas2 = findViewById(R.id.verplazas2);
-
         atras = findViewById(R.id.atras);
 
         queryBaseData();
-/*
+
         verPlazas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), EscogerTipoActivity.class);
-
+                Intent intent = new Intent(getApplicationContext(), EscogerVehiculoCatActivity.class);
+                intent.putExtra(PlantasCat,"1");
                 startActivity(intent);
             }
         });
@@ -62,12 +61,12 @@ public class PlantasCatActivity extends AppCompatActivity implements IDataReceiv
         verPlazas2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), EscogerTipoActivity.class);
-
+                Intent intent = new Intent(getApplicationContext(), EscogerVehiculoCatActivity.class);
+                intent.putExtra(PlantasCat,"2");
                 startActivity(intent);
             }
         });
-*/
+
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,9 +74,7 @@ public class PlantasCatActivity extends AppCompatActivity implements IDataReceiv
                 startActivity(intent);
             }
         });
-
     }
-
 
     protected void queryBaseData(){
         ContentResolver contentResolver = this.getContentResolver();

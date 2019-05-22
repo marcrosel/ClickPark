@@ -19,21 +19,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:replace="android:theme">
-        <activity android:name=".PlantasBellActivity"></activity>
+        <activity android:name=".PlazaAsignadaSesActivity"></activity>
+        <activity android:name=".PlazaAsignadaBellActivity" />
+        <activity android:name=".PlazaAsignadaCatActivity" />
+        <activity android:name=".PlantasBellActivity" />
         <activity android:name=".PlantasSesActivity" />
         <activity android:name=".PlantasCatActivity" />
-        <activity android:name=".EscogerPlanta" />
         <activity android:name=".PerfilActivity" />
         <activity android:name=".FavoritosActivity" />
         <activity android:name=".MenuInicialActivity" />
-        <activity android:name=".EscogerTipoActivity" />
+        <activity android:name=".EscogerVehiculoSesActivity" />
+        <activity android:name=".EscogerVehiculoCatActivity" />
+        <activity android:name=".EscogerVehiculoBellActivity" />
         <activity android:name=".RestaurarPasswordActivity" />
         <activity android:name=".ListaParkingActivity" />
         <activity android:name=".BuscarParkingActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MapsActivityBell"/>
-        <activity android:name=".MapsActivityCat"/>
-        <activity android:name=".MapsActivitySes"/>
+        <activity android:name=".MapsActivityBell" />
+        <activity android:name=".MapsActivityCat" />
+        <activity android:name=".MapsActivitySes" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

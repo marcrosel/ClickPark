@@ -52,7 +52,7 @@ public class PlantasSesActivity extends AppCompatActivity implements IDataReceiv
         verPlazas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), EscogerTipoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), EscogerVehiculoSesActivity.class);
                 intent.putExtra(PlantasSes,"3");
                 startActivity(intent);
             }
@@ -61,7 +61,7 @@ public class PlantasSesActivity extends AppCompatActivity implements IDataReceiv
         verPlazas2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), EscogerTipoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), EscogerVehiculoSesActivity.class);
                 intent.putExtra(PlantasSes,"4");
                 startActivity(intent);
             }
