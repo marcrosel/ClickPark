@@ -50,9 +50,12 @@
     <string name="VerEnMapa">VER EN MAPA</string>
     <string name="Catalunya">CATALUNYA</string>
     <string name="Sescelades">SESCELADES</string>
-    <string name="Bellisens">BELLISENS</string>
+    <string name="Bellisens">BELLISSENS</string>
     <string name="Espacio"> </string>
     <string name="plazaAsignada">Su plaza asignada es:</string>
+    <string name="qr">GENERAR QR</string>
+    <string name="tituloQr">QR</string>
+    <string name="volverAlMenu">VOLVER AL MENÚ</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

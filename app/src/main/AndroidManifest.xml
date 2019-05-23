@@ -19,7 +19,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:replace="android:theme">
-        <activity android:name=".PlazaAsignadaSesActivity"></activity>
+        <activity android:name=".QrCatActivity"/>
+        <activity android:name=".QrSesActivity"/>
+        <activity android:name=".QrBellActivity"/>
+        <activity android:name=".PlazaAsignadaSesActivity" />
         <activity android:name=".PlazaAsignadaBellActivity" />
         <activity android:name=".PlazaAsignadaCatActivity" />
         <activity android:name=".PlantasBellActivity" />

@@ -15,13 +15,15 @@ import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 public class PlazaAsignadaSesActivity extends AppCompatActivity {
 
     TextView plazaAsignada;
-    Button mapCat;
+    Button mapCat, QrButton;
+    final static String NombrePlazaSes = "NombrePlazaSes";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plaza_asignada_ses);
 
+        QrButton =  findViewById(R.id.QR);
         plazaAsignada= findViewById(R.id.plaza);
         mapCat = findViewById(R.id.vermapa);
 
@@ -35,7 +37,7 @@ public class PlazaAsignadaSesActivity extends AppCompatActivity {
 
         Cursor c = contentResolver.query(ModelContracts.SlotModel.buildContentUri(), projections, ModelContracts.SlotModel.buildFloorStateTypeSelection(), ModelContracts.SlotModel.buildFloorStateTypeSelectionArgs(floorId, "FREE", tipo), defaultOrder);
         c.moveToFirst();
-        String name = c.getString(c.getColumnIndex(ModelContracts.SlotModel.NAME));
+        final String name = c.getString(c.getColumnIndex(ModelContracts.SlotModel.NAME));
         plazaAsignada.setText(name);
 
         mapCat.setOnClickListener(new View.OnClickListener() {
@@ -46,5 +48,13 @@ public class PlazaAsignadaSesActivity extends AppCompatActivity {
             }
         });
 
+        QrButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), QrSesActivity.class);
+                intent.putExtra(NombrePlazaSes, name);
+                startActivity(intent);
+            }
+        });
     }
 }
