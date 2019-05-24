@@ -40,9 +40,16 @@ public class RegisterActivity extends AppCompatActivity {
         crearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                guardarDatos();
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
+                boolean guardat= guardarDatos();
+                if (guardat=false){
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                    startActivity(intent);
+                }
+
 
 
             }
@@ -58,7 +65,8 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    public void guardarDatos(){
+    public boolean guardarDatos(){
+        boolean guardat =false;
         EditText nombre = (EditText) findViewById(R.id.nombre);
         String nombreUsuario =  nombre.getText().toString();
         EditText apellidos = (EditText) findViewById(R.id.apellidosUsuario);
@@ -69,19 +77,24 @@ public class RegisterActivity extends AppCompatActivity {
         String password =  pass.getText().toString();
         EditText pass2 = (EditText) findViewById(R.id.password2);
         String password2 =  pass2.getText().toString();
+        if (password.equals(password2)) {
 
-        BaseDatosUsuarios baseUsuarios = new BaseDatosUsuarios(this, "DEMODB", null, 1);
-        SQLiteDatabase db = baseUsuarios.getWritableDatabase();
-        if (db != null){
-            ContentValues regitroNuevo = new ContentValues();
-            regitroNuevo.put("nombre", nombreUsuario);
-            regitroNuevo.put("apellidos", apellidosUsuario);
-            regitroNuevo.put("email", emailUsuario);
-            regitroNuevo.put("password", password);
-            db.insert("tablaUsuarios", null, regitroNuevo);
-            Toast.makeText(this, "Datos Almacenados", Toast.LENGTH_SHORT).show();
+            BaseDatosUsuarios baseUsuarios = new BaseDatosUsuarios(this, "DEMODB", null, 1);
+            SQLiteDatabase db = baseUsuarios.getWritableDatabase();
+            if (db != null) {
+                ContentValues regitroNuevo = new ContentValues();
+                regitroNuevo.put("nombre", nombreUsuario);
+                regitroNuevo.put("apellidos", apellidosUsuario);
+                regitroNuevo.put("email", emailUsuario);
+                regitroNuevo.put("password", password);
+                db.insert("tablaUsuarios", null, regitroNuevo);
+                Toast.makeText(this, "Datos Almacenados", Toast.LENGTH_SHORT).show();
+                guardat=true;
+            }
         }
+        else Toast.makeText(this, "Has introducido mal los datos", Toast.LENGTH_SHORT).show();
 
+        return guardat;
     }
 
 }
