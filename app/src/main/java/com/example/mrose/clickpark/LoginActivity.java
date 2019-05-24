@@ -65,10 +65,6 @@ public class LoginActivity extends AppCompatActivity implements IDataReceiver{
                    intent1.putExtra("email", emailusuario);
                    startActivity(intent1);
                }
-               else{
-                   Intent intent1 = new Intent(getApplicationContext(), LoginActivity.class);
-                   startActivity(intent1);
-               }
             }
         });
 

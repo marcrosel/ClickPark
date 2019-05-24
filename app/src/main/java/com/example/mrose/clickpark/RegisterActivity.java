@@ -41,12 +41,8 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boolean guardat= guardarDatos();
-                if (guardat=true){
+                if (guardat){
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(intent);
-                }
-                else{
-                    Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                     startActivity(intent);
                 }
 
@@ -92,8 +88,9 @@ public class RegisterActivity extends AppCompatActivity {
                 guardat=true;
             }
         }
-        else Toast.makeText(this, "Has introducido mal los datos", Toast.LENGTH_SHORT).show();
-
+        else {
+            Toast.makeText(this, "Has introducido mal los datos", Toast.LENGTH_SHORT).show();
+        }
         return guardat;
     }
 
