@@ -29,14 +29,13 @@
         <activity android:name=".PlantasSesActivity" />
         <activity android:name=".PlantasCatActivity" />
         <activity android:name=".PerfilActivity" />
-        <activity android:name=".FavoritosActivity" />
         <activity android:name=".MenuInicialActivity" />
         <activity android:name=".EscogerVehiculoSesActivity" />
         <activity android:name=".EscogerVehiculoCatActivity" />
         <activity android:name=".EscogerVehiculoBellActivity" />
         <activity android:name=".RestaurarPasswordActivity" />
         <activity android:name=".ListaParkingActivity" />
-        <activity android:name=".BuscarParkingActivity" />
+        <activity android:name=".PrePerfilActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MapsActivityBell" />
         <activity android:name=".MapsActivityCat" />

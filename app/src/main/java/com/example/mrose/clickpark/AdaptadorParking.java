@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,15 @@ import android.widget.CursorAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import cat.tomasgis.app.providers.parkingprovider.contracts.ModelContracts;
 
 public class AdaptadorParking extends CursorAdapter {
 
     private static LayoutInflater layoutInflater = null;
+
+
     public AdaptadorParking(Context context, Cursor c) {
         super(context, c);
 

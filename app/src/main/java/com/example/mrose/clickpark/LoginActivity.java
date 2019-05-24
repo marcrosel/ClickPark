@@ -4,12 +4,15 @@ package com.example.mrose.clickpark;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.GsonBuilder;
@@ -37,6 +40,7 @@ public class LoginActivity extends AppCompatActivity implements IDataReceiver{
         clearAllData();
         CommManager.initializeQueu(this);
 
+
         if (! CommManager.callRequest(AppURL.PARKING_URL,stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
@@ -45,12 +49,26 @@ public class LoginActivity extends AppCompatActivity implements IDataReceiver{
         inicioSesionButton = (Button) findViewById(R.id.inicio_sesion); // la var inicio sesion le corresponde
         // el boton que tiene la id = inicio_sesion
 
+
+
         inicioSesionButton.setOnClickListener(new View.OnClickListener() { //Realizamos el intent para una vez
             @Override                                                 //iniciado sesion vaya al maps
             public void onClick(View v) {
-                Intent intent1 = new Intent(getApplicationContext(), MenuInicialActivity.class);
-                startActivity(intent1);
+                EditText email = (EditText) findViewById(R.id.emailUsuario);
+                String emailusuario =  email.getText().toString();
+                EditText pass = (EditText) findViewById(R.id.passwordUsuario);
+                String password =  pass.getText().toString();
 
+               boolean trobat = usuarioCorrecto(emailusuario, password);
+               if(trobat){
+                   Intent intent1 = new Intent(getApplicationContext(), MenuInicialActivity.class);
+                   intent1.putExtra("email", emailusuario);
+                   startActivity(intent1);
+               }
+               else{
+                   Intent intent1 = new Intent(getApplicationContext(), LoginActivity.class);
+                   startActivity(intent1);
+               }
             }
         });
 
@@ -77,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements IDataReceiver{
     public void onReceiveData(String s) {
         if (s !=null) {
             if (s.length() > 0) {
-                Toast.makeText(this, "Data received", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this, "Data received", Toast.LENGTH_SHORT).show();
                 Log.d(TAG,s);
             }
         }
@@ -126,6 +144,39 @@ public class LoginActivity extends AppCompatActivity implements IDataReceiver{
         contentResolver.delete(ModelContracts.ParkingModel.buildContentUri(), null, null);
 
     }
+
+    private boolean usuarioCorrecto(String email, String password){
+        boolean trobat =false;
+        boolean trobatEmail = false;
+        boolean trobatPassword = false;
+        BaseDatosUsuarios baseDatosUsuarios= new BaseDatosUsuarios(this, "DEMODB", null, 1);
+        SQLiteDatabase db = baseDatosUsuarios.getWritableDatabase();
+        if(db !=null){
+            Cursor cursor = db.rawQuery("select * from tablaUsuarios", null);
+            cursor.moveToFirst();
+            int cantidad = cursor.getCount();
+
+            if(cantidad !=0){
+                if(cursor.moveToFirst() || (trobatEmail && trobatPassword)  ){
+                    do{
+                        String emailBBDD= cursor.getString(3);
+                        String passwordBBDD = cursor.getString(4);
+                        trobatEmail= email.equals(emailBBDD);
+                        trobatPassword = password.equals(passwordBBDD);
+                    }while (cursor.moveToNext());
+                }
+            }
+        }
+
+        if(!trobatEmail || !trobatPassword) Toast.makeText(this, "Usuario o Contraseña Incorrecta ", Toast.LENGTH_SHORT).show();
+        else {
+            trobat=true;
+            Toast.makeText(this, "BIENVENIDO", Toast.LENGTH_SHORT).show();
+        }
+        return trobat;
+    }
+
+
 
 
 

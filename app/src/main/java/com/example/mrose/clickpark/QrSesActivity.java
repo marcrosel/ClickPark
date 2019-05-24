@@ -21,7 +21,7 @@ public class QrSesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_qr_ses);
 
         QR = findViewById(R.id.imageQR);
-        menuButton = findViewById(R.id.volverMenu);
+        menuButton = findViewById(R.id.menu);
 
         Intent intent = getIntent();
         String name = intent.getStringExtra(PlazaAsignadaSesActivity.NombrePlazaSes);

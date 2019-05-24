@@ -3,12 +3,15 @@ package com.example.mrose.clickpark;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.GsonBuilder;
@@ -20,7 +23,7 @@ import cat.tomasgis.module.communication.listeners.IDataReceiver;
 import cat.tomasgis.module.communication.listeners.StringResponseListener;
 
 public class MenuInicialActivity extends AppCompatActivity implements IDataReceiver{
-
+    TextView textViewNombre;
     Button buscarParkingButton, listaParkingButton, favsButton, consultarMapaButton, cerrarsesionButton, perfilButton;
     private static final String TAG = cat.tomasgis.module.communication.commapptesting.MainActivity.class.getSimpleName();
     StringResponseListener stringListener = new StringResponseListener(this);
@@ -32,35 +35,18 @@ public class MenuInicialActivity extends AppCompatActivity implements IDataRecei
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu__inicial);
         CommManager.initializeQueu(this);
+        textViewNombre= findViewById(R.id.nombreUsuario);
+
 
         if (! CommManager.callRequest(AppURL.LOCATIOM_URL,stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
 
-
-
-        buscarParkingButton = (Button) findViewById(R.id.buscar_parking);
-        buscarParkingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(),BuscarParkingActivity.class);
-                startActivity(intent);
-            }
-        });
 
         listaParkingButton = (Button) findViewById(R.id.lista_parking);
         listaParkingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getApplicationContext(), ListaParkingActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        favsButton = (Button) findViewById(R.id.favs);
-        favsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(),FavoritosActivity.class);
                 startActivity(intent);
             }
         });
@@ -78,7 +64,7 @@ public class MenuInicialActivity extends AppCompatActivity implements IDataRecei
         perfilButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(), PerfilActivity.class);
+                Intent intent= new Intent(getApplicationContext(), PrePerfilActivity.class);
                 startActivity(intent);
             }
         });

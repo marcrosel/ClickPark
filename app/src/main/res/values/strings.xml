@@ -38,6 +38,8 @@
     <string name="close_session">CERRAR SESIÓN</string>
     <string name="consult_map">CONSULTAR MAPA</string>
     <string name="perfil">PERFIL</string>
+    <string name="irperfil">IR A PERFIL</string>
+    <string name="tiquet">TIQUET</string>
     <string name="escoger">ESCOGER</string>
     <string name="planta">PLANTA</string>
     <string name="plantas">PLANTAS</string>

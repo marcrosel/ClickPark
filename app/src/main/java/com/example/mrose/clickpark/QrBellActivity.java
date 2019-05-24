@@ -24,7 +24,7 @@ public class QrBellActivity extends AppCompatActivity {
         String name = intent.getStringExtra(PlazaAsignadaBellActivity.NombrePlazaBell);
 
         QR = findViewById(R.id.qrImage);
-        menuButton= findViewById(R.id.Menu);
+        menuButton= findViewById(R.id.menu);
 
         Bitmap bitmap = QRCode.from(name).bitmap();
 

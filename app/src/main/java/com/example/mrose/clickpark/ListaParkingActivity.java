@@ -69,6 +69,7 @@ public class ListaParkingActivity extends AppCompatActivity implements IDataRece
         Cursor cursor= contentResolver.query(ModelContracts.ParkingModel.buildContentUri(), projections, null, null, defaultOrder);
         cursor.moveToFirst();
         AdaptadorParking adaptadorParking= new AdaptadorParking(this,cursor);
+
         listViewParkings.setAdapter(adaptadorParking);
         cursor.moveToNext();
 

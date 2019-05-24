@@ -36,7 +36,6 @@ public class PlantasCatActivity extends AppCompatActivity implements IDataReceiv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plantas_cat);
-
         CommManager.initializeQueu(this);
         if (! CommManager.callRequest(AppURL.SLOTS_URL,stringListener))
             Toast.makeText(this, "Call error", Toast.LENGTH_SHORT).show();
