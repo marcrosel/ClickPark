@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boolean guardat= guardarDatos();
-                if (guardat=false){
+                if (guardat=true){
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                 }
