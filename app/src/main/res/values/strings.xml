@@ -17,12 +17,9 @@
     <string name="lista">LISTA </string>
     <string name="parking">PARKING</string>
     <string name="parkings">PARKINGS</string>
-    <string name="UPS">UPS! </string>
-    <string name="Elparking">EL PARKING</string>
-    <string name="Estacompleto">ESTÁ COMPLETO</string>
     <string name="new_passsword">INTRODUZCA LA NUEVA CONTRASEÑA</string>
     <string name="restablecer">Restablecer contraseña</string>
-    <string name="condiciones">He leído y acepto los Términos  de Servicio y Política de Privacidad</string>
+    <string name="condiciones">He leído y acepto los Términos de Servicio y Política de Privacidad</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_navigation__drawer">Navigation_Drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -39,7 +36,7 @@
     <string name="consult_map">CONSULTAR MAPA</string>
     <string name="perfil">PERFIL</string>
     <string name="irperfil">IR A PERFIL</string>
-    <string name="tiquet">TIQUET</string>
+    <string name="tiquet">TICKET</string>
     <string name="escoger">ESCOGER</string>
     <string name="planta">PLANTA</string>
     <string name="plantas">PLANTAS</string>
